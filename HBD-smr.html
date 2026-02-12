@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akses Rahasia 14 Februari</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+
+            background: url("foto-kita.jpg") no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Overlay gelap agar teks tetap jelas */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: -1;
+        }
+
+        .card {
+            backdrop-filter: blur(1.5px);
+            background: rgba(255,255,255,0.15);
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            background: white;
+            color: #a18cd1;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #ff9a9e;
+            color: white;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 20px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: white;
+            transition: width 0.3s;
+        }
+
+@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card" id="content">
+        <h1>🔐 Sistem Mendeteksi...</h1>
+        <p>
+            Mencari wanita tercantik di dunia...
+        </p>
+        <button onclick="startLoading()">Mulai Scan 😎</button>
+    </div>
+
+    <script>
+
+        function startLoading() {
+            document.getElementById("content").innerHTML = `
+            <h1>🤖 Scanning...</h1>
+            <p>Tunggu ya... jangan kabur 😆</p>
+            <div class="loading-bar">
+            <div class="progress" id="progress"></div>
+            </div>
+            `;
+
+            let width = 0;
+            let interval = setInterval(() => {
+                width += Math.random() * 20;
+                document.getElementById("progress").style.width = width + "%";
+
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(showResult, 700);
+                }
+            },
+                400);
+        }
+
+        function showResult() {
+            document.getElementById("content").innerHTML = `
+            <h1>🎯 Target Ditemukan!</h1>
+            <p>
+            Nama: Samaria, Istriku Tercantik 😘<br>
+            Status: Umur Bertambah, Imut Tetap Stabil 🤣<br><br>
+            Tingkat Kesabaran: Level Dewa 💖
+            </p>
+            <button onclick="final()">Buka Pesan Rahasia ❤️</button>
+            `;
+        }
+
+        function final() {
+            document.getElementById("content").innerHTML = `
+            <h1>🎂 Selamat Ulang Tahun Sayang ❤️</h1>
+            <p>
+            Kamu itu seperti saldo masuk tiba-tiba 😆<br>
+            Nggak disangka tapi bikin bahagia banget!<br><br>
+            Terima kasih sudah jadi rumah ternyaman,<br>
+            partner hidup paling sabar,<br>
+            dan satu-satunya orang yang boleh ngambek ke aku 🤣<br><br>
+            Aku cinta kamu hari ini,<br>
+            besok, dan selamanya 💕
+            </p>
+            `;
+        }
+
+    </script>
+
+    <!-- Tombol Buka Frame Lilin -->
+    <div style="position:fixed; bottom:50px; right:20px; z-index:999;">
+        <button onclick="openCandleFrame()">🎂 Tiup Lilin</button>
+    </div>
+
+    <!-- Frame Modal Lilin -->
+    <div id="candleFrame" style="
+        display:none;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.7);
+        backdrop-filter:blur(8px);
+        justify-content:center;
+        align-items:center;
+        z-index:1000;
+        ">
+
+        <div style="
+            background:linear-gradient(135deg,#ff9a9e,#a18cd1);
+            padding:40px;
+            border-radius:25px;
+            text-align:center;
+            color:white;
+            width:90%;
+            max-width:350px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.3);
+            animation:fadeInFrame 0.5s ease;
+            ">
+            <h2 style="margin-top:0;">Make a Wish 💫</h2>
+            <div id="modalCandle" style="font-size:60px; cursor:pointer;">
+                🕯️
+            </div>
+            <div style="font-size:70px;">
+                🎂
+            </div>
+            <p id="wishText">
+                Izinkan mikrofon untuk meniup 😆
+            </p>
+            <button onclick="closeCandleFrame()" style="margin-top:15px;">Tutup</button>
+        </div>
+    </div>
+
+    <style>
+@keyframes fadeInFrame {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    </style>
+
+    <script>
+        let blown = false;
+        let audioContext;
+        let analyser;
+        let micStream;
+
+        // Buka popup + aktifkan mic
+        async function openCandleFrame() {
+            document.getElementById("candleFrame").style.display = "flex";
+            blown = false;
+
+            try {
+                micStream = await navigator.mediaDevices.getUserMedia({
+                    audio: true
+                });
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                await audioContext.resume();
+
+                const mic = audioContext.createMediaStreamSource(micStream);
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 256;
+
+                mic.connect(analyser);
+
+                detectBlow();
+            } catch(err) {
+                document.getElementById("wishText").innerHTML =
+                "Izin mikrofon ditolak 😅";
+            }
+        }
+
+        // Tutup popup + reset + matikan mic
+        function closeCandleFrame() {
+            document.getElementById("candleFrame").style.display = "none";
+
+            // Reset tampilan
+            document.getElementById("modalCandle").innerHTML = "🕯️";
+            document.getElementById("wishText").innerHTML =
+            "Tiup lilinnya pakai mic yaa 😆";
+
+            blown = false;
+
+            // Matikan mic biar aman
+            if (micStream) {
+                micStream.getTracks().forEach(track => track.stop());
+            }
+            if (audioContext) {
+                audioContext.close();
+            }
+        }
+
+        // Deteksi tiupan
+        function detectBlow() {
+            if (!analyser || blown) return;
+
+            const data = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(data);
+
+            let volume = data.reduce((a, b)=>a+b) / data.length;
+
+            if (volume > 40) {
+                // sensitivitas (turunkan kalau kurang peka)
+                blown = true;
+
+                document.getElementById("modalCandle").innerHTML = "🕯";
+                document.getElementById("wishText").innerHTML =
+                "Yeaay! Lilinnya padam 🎉<br>Semoga semua doa kamu terkabul ❤️";
+            }
+
+            requestAnimationFrame(detectBlow);
+        }
+    </script>
+
+
+    <audio id="bgm" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <style>
+        .floating-emoji {
+            position: fixed;
+            bottom: -30px;
+            font-size: 22px;
+            animation: floatUp linear forwards;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+@keyframes floatUp {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <script>
+        const emojis = ["💖", "✨", "💕", "🥰", "🌸"];
+
+        setInterval(() => {
+            const emoji = document.createElement("div");
+            emoji.classList.add("floating-emoji");
+            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.animationDuration = (Math.random() * 5 + 4) + "s";
+            emoji.style.fontSize = (Math.random() * 15 + 18) + "px";
+            document.body.appendChild(emoji);
+
+            setTimeout(() => {
+                emoji.remove();
+            }, 9000);
+        }, 800);
+    </script>
+
+    <!-- Tombol Musik -->
+    <div style="position:fixed; top:15px; right:15px; z-index:999;">
+        <button onclick="toggleMusic()" id="musicBtn">▶ Play Musik</button>
+    </div>
+
+    <script>
+        const audio = document.getElementById("bgm");
+        const musicBtn = document.getElementById("musicBtn");
+        document.addEventListener("click", () => {
+            audio.play().catch(()=> {});
+        }, {
+            once: true
+        });
+        // Jangan autoplay paksa lagi
+        audio.autoplay = true;
+
+        // Pastikan tombol sinkron
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                musicBtn.innerHTML = "⏸ Stop Musik";
+            } else {
+                audio.pause();
+                musicBtn.innerHTML = "▶ Play Musik";
+            }
+        }
+
+        // Update teks tombol jika user pause manual
+        audio.addEventListener("play", () => {
+            musicBtn.innerHTML = "⏸ Stop Musik";
+        });
+
+        audio.addEventListener("pause", () => {
+            musicBtn.innerHTML = "▶ Play Musik";
+        });
+    </script>
+
+</body>
+</html>
